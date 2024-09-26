@@ -9,8 +9,14 @@ class StatsController < ApplicationController
             total_points: 50,
             minutes_played: 30
         )
-        p stat
         stat.save
         render json: {name: 'hello'}
     end
+
+    def show
+        @stat = Stat.find_by(id: params[:id])
+        render 'stats/show'
+    end
 end
+
+  
