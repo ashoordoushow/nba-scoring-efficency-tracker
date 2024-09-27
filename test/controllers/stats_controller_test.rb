@@ -31,4 +31,11 @@ class StatsControllerTest < ActionDispatch::IntegrationTest
     data = JSON.parse(response.body)
     assert_equal 12, data["total_points"]
   end
+
+  test "destroy" do
+    assert_difference "Stat.count", -1 do
+      delete "/stats/#{Stat.first.id}.json"
+      assert_response 200
+    end
+  end
 end

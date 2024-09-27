@@ -27,16 +27,13 @@ class StatsController < ApplicationController
         @stat.save
         render 'stats/show'
     end
+
+    def destroy
+        @stat = Stat.find_by(id: params[:id])
+        @stat.destroy
+        render 'stats/show'
+    end
 end
 
-# def update
-#     @photo = Photo.find_by(id: params[:id])
-#     @photo.update(
-#       name: params[:name] || @photo.name,
-#       width: params[:width] || @photo.width,
-#       height: params[:height] || @photo.height,
-#     )
-#     render :show
-#   end
 
   
